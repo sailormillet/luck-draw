@@ -1,59 +1,32 @@
-$designWidth: 750;
-
-@function px2rem($px) {
-  @return $px*320/$designWidth/20px+rem;
-}
-
-.sudoku_lottery {
-  margin: px2rem(60px) px2rem(40px) px2rem(30px);
-  border-radius: px2rem(28px);
-  padding: px2rem(210px) px2rem(40px) px2rem(65px);
-  background: #B1120A;
-  max-width: px2rem(600px);
-
-  .text_box {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .text_img {
-    width: 100%;
-    display: inline-block;
-  }
-
+.lottery {
   &_content {
     position: relative;
-    top: px2rem(-6px);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: px2rem(13px);
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-template-rows: repeat(3, 33.33%);
   }
 
   &_item {
-    width: px2rem(182px);
-    height: px2rem(182px);
-    color: #B1120A;
-    border-radius: px2rem(25px);
-    margin: 0 0 px2rem(13px);
-
-    &:nth-of-type(1n+5) {
-      margin: 0;
+    &_main {
+      border: 1px solid #fff;
+      font-size: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background-color: #B1120A;
+      padding: 10px;
     }
 
-    &.sudoku_lottery_item-active {
+    &.lottery_item-active {
       opacity: 0.4;
     }
-  }
-
-  &_btn {
-    width: px2rem(182px);
-    height: px2rem(182px);
-    border-radius: px2rem(25px);
-    font-size: px2rem(59px);
-    font-weight: bold;
-    line-height: px2rem(69px);
-    margin: 0 0 px2rem(13px);
   }
 }

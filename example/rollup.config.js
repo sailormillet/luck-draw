@@ -14,27 +14,26 @@ import postcss from 'rollup-plugin-postcss';
 const pathResolve = local => path.resolve(__dirname, local);
 console.log(process.env.NODE_ENV)
 // const isProductionEnv = process.env.NODE_ENV === 'production'
-const processSass = function (context, payload) {
-    console.log(1111, context)
-    console.log(2222222222222222)
-    return new Promise((resolve, reject) => {
-        sass.render({
-            file: context
-        }, function (err, result) {
-            console.log(2222222222222222)
-            if (!err) {
-                resolve(result);
-            } else {
-                reject(err)
-            }
-        });
-    })
-}
+// const processSass = function (context, payload) {
+//     console.log(1111, context)
+//     return new Promise((resolve, reject) => {
+//         sass.render({
+//             file: pathResolve(`dist/${context}`)
+//         }, function (err, result) {
+//             console.log(2222222222222222, result)
+//             if (!err) {
+//                 resolve(result);
+//             } else {
+//                 reject(err)
+//             }
+//         });
+//     })
+// }
 export default {
     input: pathResolve('src/index.js'),
     output: {
-        name: 'bundle',
-        file: pathResolve("dist/js/bundle.js"),
+        file: pathResolve("dist/bundle.js"),
+        // name: 'bundaaale',
         format: 'iife',//immediately-invoked function expression — suitable for <script> tags
         sourcemap: true,
     },
@@ -52,9 +51,10 @@ export default {
             ],
             // minimize: isProductionEnv,
             extract: true,
+            // extract: pathResolve("dist/css/bundle.css"),
             // 处理.css和.less文件
             extensions: ['css', 'scss'],
-            process: processSass,
+            // process: processSass,
         }),
         resolve(), // tells Rollup how to find date-fns in node_modules
         // includePaths({
@@ -79,10 +79,16 @@ export default {
         }),
         // scss({
         //     // output: true,
-        //     // output: pathResolve("dist/css/bundle.css"),
-        //     output: function (styles, styleNodes) {
-        //         writeFileSync('bundle.css', styles)
+        //     output: pathResolve("dist/css/bundle.css"),
+        //     processor: css => {
+        //         console.log(css)
+        //         return css.replace('/*date*/', '/* ' + new Date().toJSON() + ' */')
         //     },
+        //     failOnError: true,
+        //     // output: function (styles, styleNodes) {
+        //     //     console.log(styles, styleNodes)
+        //     //     // writeFileSync('bundle.css', styles)
+        //     // },
         // }),
 
         // production && terser() // minify, but only in production

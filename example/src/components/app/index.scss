@@ -1,3 +1,20 @@
-div {
-    font-size: 16px;
+.custom_item {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    &_main {
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        background: center / contain no-repeat url(http://pic.616pic.com/ys_bnew_img/00/01/57/U7ufYnq30u.jpg)
+    }
+
+    &_btn {
+        width: 100%;
+        height: 100%;
+        background: center / contain no-repeat url(http://pic.616pic.com/ys_bnew_img/00/05/66/BO2KOc02FC.jpg)
+    }
+
 }
