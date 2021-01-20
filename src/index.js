@@ -1,6 +1,6 @@
 import React from 'react'
-import './index.scss'
-export default class LuckDraw extends React.PureComponent {
+import './styles/index.scss'
+class LuckDraw extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = {
@@ -121,3 +121,4 @@ export default class LuckDraw extends React.PureComponent {
         );
     }
 }
+export default LuckDraw

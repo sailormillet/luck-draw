@@ -59,26 +59,6 @@ giftList = [{
    4     5
    6  7  8
 
-<!-- 3. 奖品数据格式示例
-   [
-     {
-       "name": "AirPods Pro",
-       "image": "https://p4.nicaifu.com/hz/df2f389de7bed12645c0e476c50dd187.png",
-       "jump_url": "http://wiki.ncfimg.com/pages/viewpage.action?pageId=10954221",
-       "share_jump_url": "http://www.baidu.com",
-       "tag": "",
-       "id": "1"
-     },
-     {
-       "name": "iPhone 12",
-       "image": "https://p4.nicaifu.com/hz/50178dde1871167f05ace91d4f5ca452.png",
-       "jump_url": "https://m.360huzhubao.com/?_vConsole_=1&hznojump=1#/index",
-       "share_jump_url": "http://www.baidu.com",
-       "tag": "",
-       "id": "3"
-     }
-   ] -->
-
 
 #  用法
 ```
@@ -117,3 +97,40 @@ giftList = [{
     调用抽奖组件的方法： 1. 通过ref,  2. 通过callback回调函数参数中的current对象，例如：current.reset()
 
 
+#  总结：
+1、rollup 适合打包 js 库，不适合打包 css，如果想制作 基于 react 和antd 的组件首选 webpack
+2、rollup-plugin-commonjs这个包一定要引入好，并且注意使用
+
+//告诉rollup不要将此lodash打包，而作为外部依赖，否则会报 <div >不识别或者  React 的Component 各种错
+```
+external: ["react", "lodash", "antd"],
+commonjs({
+      include: ["node_modules/**"]
+    }),
+```
+3、npm 和 git 使用共同的 version和 tags
+4、npm 发布用下面的，添加包用上面的
+```
+npm set registry https://registry.npm.taobao.org
+npm set registry http://registry.npmjs.org
+```
+# 发布到 npm
+```
+npm login
+npm version new-version
+npm publish
+git push origin --tags
+```
+### 配置.npmignore
+
+如果项目中没有编写 .npmignore 文件，则需要在 package.json 中新增 files 字段，用于申明将要发布到 NPM 的文件。如果省略掉这一项，所有文件包括源代码会被一起上传到 NPM。
+本文采用写 .npmignore 文件的方式，实现仅发布打包后的组件代码。 .npmignore 文件的具体内容如下：
+
+# 指定发布 npm 的时候需要忽略的文件和文件夹
+# npm 默认不会把 node_modules 发上去
+```
+config # webpack配置
+example # 开发时预览代码
+src # 组件源代码目录
+.babelrc # babel 配置
+```
