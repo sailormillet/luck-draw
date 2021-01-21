@@ -18,6 +18,7 @@ giftList = [{
                 id: 1,
                 ele: <div className={`custom_item`}>
                     <div className={`custom_item_main`}>
+                    奖品1
                     </div>
                 </div>
             }, {
@@ -28,6 +29,7 @@ giftList = [{
                 id: 3,
                 ele: <div className={`custom_item`}>
                     <div className={`custom_item_main`}>
+                    奖品2
                     </div>
                 </div>
             }, {
@@ -42,6 +44,7 @@ giftList = [{
                 id: 6,
                 ele: <div className={`custom_item`}>
                     <div className={`custom_item_main`}>
+                    奖品3
                     </div>
                 </div>
             }, {
@@ -63,7 +66,7 @@ giftList = [{
 #  用法
 ```
     import { LuckDraw } from 'LuckDraw'
-
+    import 'luck-draw-react/dist/luck-draw.css';
     <LuckDraw
       giftList={this.state.luck_draw_data}
       times={this.state.sudoku_lottery_times}
