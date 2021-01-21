@@ -1,5 +1,6 @@
 import React from 'react'
 import LuckDraw from 'luck-draw';
+console.log(LuckDraw)
 import './index.scss'
 export default class App extends React.Component {
     constructor(props) {
