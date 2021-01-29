@@ -38,7 +38,11 @@
   },
   "keywords": [
     "luck-draw",
-    "react"
+    "react",
+    "react-component",
+    "component",
+    "components",
+    "frontend"
   ],
   "author": "Amy",
   "license": "ISC",
