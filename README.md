@@ -65,7 +65,7 @@ giftList = [{
 
 #  用法
 ```
-    import { LuckDraw } from 'LuckDraw'
+    import LuckDraw from 'luck-draw-react';
     import 'luck-draw-react/dist/luck-draw.css';
     <LuckDraw
       giftList={this.state.luck_draw_data}
